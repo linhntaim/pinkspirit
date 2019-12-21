@@ -32,31 +32,51 @@
 
         $goldenRatio: 1.618;
 
-        $lineHeight: 1.5;
+        $lineHeight: 1.2;
 
         $pivotWidth: $lg-min-width / 2;
+
+        $colorPink: #ec008c;
 
         $h1FontSize: 60px;
         $h2FontSize: 72px;
         $h3FontSize: 30px;
 
+        $h1PaddingSmaller: 15px;
+        $h1PaddingSmall: 20px;
+        $h1Padding: 35px;
+        $h1PaddingBig: 50px;
+
         $bandBottom: 100px;
         $bandHeight: 150px;
         $bandMinBottom: 40px;
 
+        .color-pink {
+            color: $colorPink;
+        }
+
         h1 {
+            cursor: pointer;
             position: absolute;
             top: 0;
             left: calc(50% - #{$pivotWidth});
             margin: 0;
-            background: #ec008c;
+            background: $colorPink;
             font-size: $h1FontSize;
             color: #fff;
-            padding: 15px 50px 35px;
+            padding: $h1PaddingSmaller $h1PaddingBig $h1Padding;
+            z-index: 2;
 
             a {
                 color: #fff;
                 text-decoration: none;
+            }
+
+            i {
+                position: absolute;
+                bottom: 8px;
+                left: calc(50% - 8px);
+                font-size: 20px;
             }
 
             @media (max-width: $md-max-width) {
@@ -66,12 +86,76 @@
             @media (max-width: $xs-max-width) {
                 width: 100%;
                 font-size: $h1FontSize / $goldenRatio;
-                padding: 20px 35px 35px;
+                padding: $h1PaddingSmall $h1Padding $h1Padding;
+
+                i {
+                    bottom: auto;
+                    left: auto;
+                    right: 35px;
+                    top: 40px;
+                }
             }
 
             @media (max-height: $sm-max-width) {
-                padding-top: 20px;
+                padding-top: $h1PaddingSmall;
                 font-size: $h1FontSize / $goldenRatio;
+            }
+        }
+
+        blockquote {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-height: 100%;
+            margin: 0;
+            padding-top: $h1FontSize * $lineHeight + $h1PaddingSmaller + $h1Padding + $h1PaddingBig;
+            padding-bottom: $h1PaddingBig;
+            background: #fff;
+            color: #000;
+            z-index: 1;
+
+            &.active {
+                display: block;
+            }
+
+            p {
+                width: $lg-min-width;
+                margin: 0 auto $h1PaddingSmaller;
+                padding: 0 $h1PaddingBig;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            a {
+                color: $colorPink;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            @media (max-width: $md-max-width) {
+                p {
+                    width: 100%;
+                }
+            }
+
+            @media (max-width: $xs-max-width) {
+                padding-top: $h1FontSize / $goldenRatio * $lineHeight + $h1PaddingSmall + $h1Padding + $h1Padding;
+                padding-bottom: $h1Padding;
+
+                p {
+                    padding: 0 $h1Padding;
+                }
+            }
+
+            @media (max-height: $sm-max-width) {
+                padding-top: $h1FontSize / $goldenRatio * $lineHeight + $h1PaddingSmall + $h1Padding + $h1Padding;
             }
         }
 
