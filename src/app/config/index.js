@@ -78,7 +78,7 @@ export const APP_DEFAULT_META = [{
 }, {
     id: 'og-image-alt',
     property: 'og:image:alt',
-    content: 'Me @ Ly Son Island, Quang Ngai Province, Vietnam',
+    content: 'A photo of Hân in her birthday\'s photo shoot',
 }, {
     id: 'fb-app-id',
     property: 'fb:app_id',
