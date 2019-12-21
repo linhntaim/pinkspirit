@@ -28,7 +28,7 @@
                 h2.animated.delay-fast.fadeInUpSmall
                     a(@click="$event.stopPropagation()" href="https://reflecting-ball.linhntaim.com" target="_blank") Reflecting Ball
                     span.arrow-right
-                .description.animated.delay-1s-fast.fadeInDownMedium Balls are falling to ground by gravity. They are also jumping their own dance. Click or tap on screen to push the nearest ball to higher place.
+                .description.animated.delay-1s-fast.fadeInDownMedium Balls are falling to ground due to gravity. They are also jumping their own dance. Click or tap on screen to push the nearest ball to higher place.
             .project(:class="{active: projectCurrentIndex === 4}")
                 .band.animated.faster.slideInLeft
                 h2.animated.delay-fast.fadeInUpSmall
@@ -40,6 +40,7 @@
 <script>
     import {APP_URL} from '../../app/config'
     import {$ui} from '../../app/utils/ui'
+    import {timeoutCaller} from '../../app/utils/timeout_caller'
 
     export default {
         name: 'Home',
@@ -51,18 +52,23 @@
                 appUrl: APP_URL,
                 projectCurrentIndex: 0,
                 projectLength: 5,
+                projectNextHandler: null,
+                projectNextTimeout: [13000, 7000, 14000, 15000, 12000],
             }
         },
         computed: {},
         mounted() {
             const onDocumentClicked = e => {
+                this.stopAutoNext()
                 if (e.offsetX >= window.innerWidth / 2) {
                     this.nextProject()
                 } else {
                     this.prevProject()
                 }
+                this.autoNext()
             }
             $ui(document).off('click', onDocumentClicked).on('click', onDocumentClicked)
+            this.autoNext()
         },
         methods: {
             prevProject() {
@@ -78,6 +84,18 @@
                 } else if (this.projectCurrentIndex === this.projectLength - 1) {
                     this.projectCurrentIndex = 0
                 }
+            },
+            stopAutoNext() {
+                if (this.projectNextHandler) {
+                    timeoutCaller.clear(this.projectNextHandler)
+                }
+            },
+            autoNext() {
+                this.projectNextHandler = timeoutCaller.register(() => {
+                    this.nextProject()
+
+                    this.autoNext()
+                }, this.projectNextTimeout[this.projectCurrentIndex])
             },
         },
     }
