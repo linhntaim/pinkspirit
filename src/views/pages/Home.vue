@@ -2,9 +2,42 @@
     .home.no-selection
         .background
         .content
-            h1.animated.fast.delay-fastest.slideInDown
-                a(@click="$event.stopPropagation()" :href="appUrl")
-                    strong pinkspirit
+            h1.animated.fast.delay-fastest.slideInDown(@click="explorePost")
+                strong pinkspirit
+                i.fas(:class="{'fa-chevron-down': !postActive, 'fa-chevron-up': postActive}")
+            blockquote.animated.faster.slideInDown(:class="{active: postActive}")
+                p The&nbsp;
+                    span.color-pink &ldquo;pinkspirit&rdquo;
+                    | &nbsp;is a project inspired by&nbsp;
+                    span.color-pink Lê Bảo Hân
+                    | .
+                p It was started by myself in 2015, when I knew Hân for a long time - more than one year, maybe. Hân was studying at Hanoi University of Industrial Fine Art at that time and would soon graduate. She was very attractive. I saw her and felt impressed immediately by her beauty; especially, when she got into something I could not define, something that would do exist timelessly, in those amazing black and white photos.
+                p She, and her inspiration, inspired me to do a lot of things. I did travelling, exploring many places and human cultures, learning to live and work, improving my own skills and spreading my own thoughts. My world became wider. And because of Hân, it even became fantastical. I used to be eager to discover the world from then on.
+                p Till now, Hân was still an inspiring person to me. The project&nbsp;
+                    span.color-pink &ldquo;pinkspirit&rdquo;
+                    | &nbsp;was still under development, though some parts of it were inactive for years.
+                p Send her my adoration.
+                p &mdash;
+                p Here are parts of this project:
+                p -&nbsp;
+                    a(href="https://katniss.linhntaim.com" target="_blank") Katniss
+                    | &nbsp;(also inpsired by&nbsp;
+                    a(href="https://en.wikipedia.org/wiki/Katniss_Everdeen" target="_blank") Katniss Everdeen
+                    | &nbsp;in&nbsp;
+                    a(href="https://en.wikipedia.org/wiki/The_Hunger_Games" target="_blank")
+                        em The Hunger Games
+                    | )
+                p - Some writings at&nbsp;
+                    a(href="https://hey.linhntaim.com/tag/han/" target="_blank") hey.linhntaim.com
+                p -&nbsp;
+                    a(href="https://korean-t2i.linhntaim.com" target="_blank") Korean t2i
+                p -&nbsp;
+                    a(href="https://flappy-ball.linhntaim.com" target="_blank") Flappy ball
+                p -&nbsp;
+                    a(href="https://reflecting-ball.linhntaim.com" target="_blank") Reflecting ball
+                p -&nbsp;
+                    a(href="https://maze-runner.linhntaim.com" target="_blank") Maze runner
+                p - ...
             .project(:class="{active: projectCurrentIndex === 0}")
                 .band.animated.faster.slideInLeft
                 h2.animated.delay-fast.fadeInUpSmall
@@ -50,6 +83,7 @@
         data() {
             return {
                 appUrl: APP_URL,
+                postActive: false,
                 projectCurrentIndex: 0,
                 projectLength: 5,
                 projectNextHandler: null,
@@ -71,6 +105,10 @@
             this.autoNext()
         },
         methods: {
+            explorePost($event) {
+                $event.stopPropagation()
+                this.postActive = !this.postActive
+            },
             prevProject() {
                 if (this.projectCurrentIndex > 0) {
                     --this.projectCurrentIndex
