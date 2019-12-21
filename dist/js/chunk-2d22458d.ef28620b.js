@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([["chunk-2d22458d"],{e06b:function(e,n,t){"use strict";t.r(n);var r={name:"Error"},s=t("2877"),a=Object(s.a)(r,(function(){var e=this.$createElement,n=this._self._c||e;return n("div",{staticClass:"container pt-5"},[n("router-view")],1)}),[],!1,null,null,null);n.default=a.exports}}]);
