@@ -8,15 +8,24 @@
             blockquote.animated.faster.slideInDown(:class="{active: postActive}")
                 p The&nbsp;
                     span.color-pink &ldquo;pinkspirit&rdquo;
-                    | &nbsp;is a project inspired by&nbsp;
+                    | &nbsp;is a project by myself, inspired by&nbsp;
                     span.color-pink Lê Bảo Hân
                     | .
-                p It was started by myself in 2015, when I knew Hân for a long time - more than one year, maybe. Hân was studying at Hanoi University of Industrial Fine Art at that time and would soon graduate. She was very attractive. I saw her and felt impressed immediately by her beauty; especially, when she got into something I could not define, something that would do exist timelessly, in those amazing black and white photos.
-                p She, and her inspiration, inspired me to do a lot of things. I did travelling, exploring many places and human cultures, learning to live and work, improving my own skills and spreading my own thoughts. My world became wider. And because of Hân, it even became fantastical. I used to be eager to discover the world from then on.
-                p Till now, Hân was still an inspiring person to me. The project&nbsp;
+                p It was started in 2015, when I knew Hân for a long time - more than one year, maybe.&nbsp;
+                    | Hân was studying at Hanoi University of Industrial Fine Art at that time and would soon graduate.&nbsp;
+                    | She was very attractive. I saw her and felt impressed immediately by her beauty;&nbsp;
+                    | especially, when she got into something I could not define, something that would do exist forever, in her timelessly amazing black and white photos.
+                p She, and her inspiration, inspired me to do a lot of things.&nbsp;
+                    | I quit my stable job.&nbsp;
+                    | I did travelling, exploring many places and human cultures, learning to live this life, improving my own skills and spreading my own thoughts.&nbsp;
+                    | My world became wider.&nbsp;
+                    | And because of Hân, it even became fantastical.&nbsp;
+                    | I used to be eager to discover the whole world from then on.
+                p Till now, Hân was still an inspiring person to me.&nbsp;
+                    | The project&nbsp;
                     span.color-pink &ldquo;pinkspirit&rdquo;
                     | &nbsp;was still under development, though some parts of it were inactive for years.
-                p Send her my adoration.
+                p Just send her my adoration.
                 p &mdash;
                 p Here are parts of this project:
                 p -&nbsp;
